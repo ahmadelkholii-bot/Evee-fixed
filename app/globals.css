@@ -1,0 +1,203 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: 236, 72, 153;
+  --primary-dark: 219, 39, 119;
+  --secondary: 147, 51, 234;
+  --background: 248, 250, 252;
+  --foreground: 15, 23, 42;
+  --card: 255, 255, 255;
+  --card-foreground: 15, 23, 42;
+  --border: 226, 232, 240;
+  --input: 226, 232, 240;
+  --ring: 236, 72, 153;
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: 15, 23, 42;
+  --foreground: 248, 250, 252;
+  --card: 30, 41, 59;
+  --card-foreground: 248, 250, 252;
+  --border: 51, 65, 85;
+  --input: 51, 65, 85;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: rgb(var(--foreground));
+  background: rgb(var(--background));
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(var(--border));
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(var(--foreground), 0.3);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-out;
+}
+
+.animate-slideIn {
+  animation: slideIn 0.3s ease-out;
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Status badges */
+.status-normal {
+  @apply bg-green-100 text-green-700 border-green-200;
+}
+
+.status-abnormal {
+  @apply bg-red-100 text-red-700 border-red-200;
+}
+
+.status-warning {
+  @apply bg-yellow-100 text-yellow-700 border-yellow-200;
+}
+
+.status-info {
+  @apply bg-blue-100 text-blue-700 border-blue-200;
+}
+
+/* Card hover effect */
+.card-hover {
+  @apply transition-all duration-200 ease-in-out;
+}
+
+.card-hover:hover {
+  @apply shadow-lg transform -translate-y-0.5;
+}
+
+/* Button styles */
+.btn-primary {
+  @apply bg-pink-500 hover:bg-pink-600 text-white font-medium py-2 px-4 rounded-lg transition-colors;
+}
+
+.btn-secondary {
+  @apply bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-2 px-4 rounded-lg transition-colors;
+}
+
+.btn-danger {
+  @apply bg-red-500 hover:bg-red-600 text-white font-medium py-2 px-4 rounded-lg transition-colors;
+}
+
+/* Input styles */
+.input-field {
+  @apply w-full px-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-all;
+}
+
+/* Label styles */
+.label {
+  @apply block text-sm font-medium text-gray-700 mb-1;
+}
+
+/* Section styles */
+.section-title {
+  @apply text-lg font-semibold text-gray-800 mb-4;
+}
+
+/* Trimester colors */
+.trimester-1 {
+  @apply bg-green-500;
+}
+
+.trimester-2 {
+  @apply bg-amber-500;
+}
+
+.trimester-3 {
+  @apply bg-rose-500;
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  body {
+    background: white;
+  }
+}
+
+/* Touch-friendly tap targets */
+@media (pointer: coarse) {
+  button, a, input, select, textarea {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Safe area for notched devices */
+.safe-area-top {
+  padding-top: env(safe-area-inset-top);
+}
+
+.safe-area-bottom {
+  padding-bottom: env(safe-area-inset-bottom);
+}
