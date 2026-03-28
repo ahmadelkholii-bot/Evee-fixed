@@ -52,7 +52,7 @@ export default function NewVisit() {
       differentialDiagnosis: formData.differentialDiagnosis,
       plan: formData.plan,
       prescriptions: formData.prescriptions,
-      followUpDate: formData.followUpDate || null,
+      followUpDate: formData.followUpDate || undefined,
       notes: formData.notes,
       vitalSigns: addVitals ? {
         bloodPressure: formData.vitalSigns.bloodPressure,
